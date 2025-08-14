@@ -24,20 +24,19 @@ body {
 
 .container .spinBtn {
     position: absolute;
-    width: 80px;
-    height: 80px;
-    background: linear-gradient(45deg, rgba(72, 164, 255, 1) 0%, rgba(45, 51, 166, 1) 84%, rgba(72, 164, 255, 1) 100%);
+    width: 60px;
+    height: 60px;
+    background: #fff;
     border-radius: 50%;
     z-index: 10;
     display: flex;
     justify-content: center;
     align-items: center;
     text-transform: uppercase;
-    font-weight: 800;
-    font-size: 1.2em;
-    color: #fff;
-    letter-spacing: -0.05em;
-    border: 4px solid #b57e10;
+    font-weight: 600;
+    color: #333;
+    letter-spacing: 0.1em;
+    border: 4px solid rgba(0, 0, 0, 0.75);
     cursor: pointer;
     user-select: none;
 }
@@ -45,7 +44,7 @@ body {
 .container .spinBtn::before {
     content: '';
     position: absolute;
-    top: -168px;
+    top: -180px;
     width: 20px;
     transform: rotate(180DEG);
     height: 30px;
@@ -108,37 +107,16 @@ body {
 .ulitmatePrize{
     position: relative;
     transform: rotate(45deg);
-    color: #000 !important;
+    color: ##000;
     font-size: 2em;
     font-weight: 700;
     text-shadow: 3px 5px 2px rgba(0, 0, 0, 0.15);
 }
-.sliceTextGroup {
-    display: flex;
-    width: 100px;
-    flex-direction: column;
-    align-items: flex-start;
-}
-.smallSliceText {
-    font-size: 0.75em;
-}
-.largeSliceText {
-    font-size: 1.25em;
-   line-height: 32px;
-}
-.mediumSliceText {
-    font-size: 0.6em;
-    line-height: 18px;
-    white-space: nowrap;       /* prevents wrapping / ignores line breaks */
-    overflow: hidden;          /* hides overflow */
-    text-overflow: clip;       /* just clips overflowing text */
-}
 
-
-/* .container .wheel .number span::after {
+.container .wheel .number span::after {
     content: '$';
     padding-left: 5px;
     position: absolute;
     font-size: 0.75em;
     font-weight: 500;
-} */
+}
