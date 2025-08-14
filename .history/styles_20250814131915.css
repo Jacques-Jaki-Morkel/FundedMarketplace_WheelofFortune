@@ -54,31 +54,35 @@ body {
 
 .container .wheel {
     position: absolute;
-    top: 50%;
-    left: 50%;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    inset: 0;
+    background: radial-gradient(#b57e10 20% ,#fff3a6  25%, #f9df7b 39%, #b57e10 45%);
     border-radius: 50%;
-    overflow: hidden; /* keeps slices inside the wheel */
-    z-index: 2; /* above frame */
-    background: radial-gradient(#b57e10 20%, #fff3a6 25%, #f9df7b 39%, #b57e10 45%);
-     box-shadow: 0 0 0 3px rgba(181, 126, 16, 1)
-      
-         
+    overflow: hidden;
+    box-shadow: 0 0 0 5px #b57e10,
+        0 0 0 25px #fff,
+        0 0 0 31px #b57e10;
+        
 }
-
-.wheel-frame {
+/* Gradient overlay rings */
+.container .wheel::before,
+{
+    content: "";
     position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 170%; /* bigger than wheel */
-    height: 170%;
-    transform: translate(-50%, -50%);
-    z-index: 1; /* behind the wheel */
-    pointer-events: none; /* allows clicking wheel slices */
+    inset: 0; /* fills the wheel */
+    border-radius: 50%;
+    pointer-events: none;
 }
 
+.container .wheel::before {
+    background: radial-gradient(circle, rgba(181, 126, 16, 0.7) 20%, rgba(255, 243, 166, 0) 25%, rgba(249, 223, 123, 0.7) 39%, rgba(181, 126, 16, 0.7) 45%);
+}
+
+.container .wheel::after {
+    background: radial-gradient(circle, rgba(72, 164, 255, 0.7) 0%, rgba(45, 51, 166, 0.7) 84%, rgba(72, 164, 255, 0.7) 100%);
+}
 
 .container .wheel .number {
     position: absolute;
