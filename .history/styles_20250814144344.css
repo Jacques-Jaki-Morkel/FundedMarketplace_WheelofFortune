@@ -1,0 +1,144 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: rgb(52, 6, 96);
+}
+
+.container {
+    position: relative;
+    width: 400px;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container .spinBtn {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(45deg, rgba(72, 164, 255, 1) 0%, rgba(45, 51, 166, 1) 84%, rgba(72, 164, 255, 1) 100%);
+    border-radius: 50%;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    font-weight: 800;
+    font-size: 1.2em;
+    color: #fff;
+    letter-spacing: -0.05em;
+    border: 4px solid #b57e10;
+    cursor: pointer;
+    user-select: none;
+}
+
+.container .spinBtn::before {
+    content: '';
+    position: absolute;
+    top: -168px;
+    width: 20px;
+    transform: rotate(180DEG);
+    height: 30px;
+    background: linear-gradient(#b57e10  ,#fff3a6 , #f9df7b , #b57e10 );
+    clip-path: polygon(50% 40%, -5% 100%, 105% 100%);
+}
+
+.container .wheel {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    inset: 0;
+    border-radius: 50%;
+    overflow: hidden; /* keeps slices inside the wheel */
+    z-index: 2; /* above frame */
+    background: radial-gradient(#b57e10 20%, #fff3a6 25%, #f9df7b 39%, #b57e10 45%);
+     box-shadow: 0 0 0 3px rgba(181, 126, 16, 1)
+      
+         
+}
+
+.wheel-frame {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 170%; /* bigger than wheel */
+    height: 170%;
+    transform: translate(-50%, -50%);
+    z-index: 1; /* behind the wheel */
+    pointer-events: none; /* allows clicking wheel slices */
+}
+
+
+.container .wheel .number {
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    background:var(--clr2, linear-gradient(var(--angle), #8b72e7, #6b2df0));
+    --angle: 140deg;
+    transform-origin: bottom right;
+    transform: rotate(calc(45deg * var(--i)));
+    clip-path: polygon(0 0, 56% 0, 100% 100%, 0 56%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    user-select: none;
+    cursor: pointer;
+}
+
+.container .wheel .number span {
+    position: relative;
+    transform: rotate(45deg);
+    color: #fff;
+    font-size: 2em;
+    font-weight: 700;
+    text-shadow: 3px 5px 2px rgba(0, 0, 0, 0.15);
+}
+.ulitmatePrize{
+    position: relative;
+    transform: rotate(45deg);
+    color: #000 !important;
+    font-size: 2em;
+    font-weight: 700;
+    text-shadow: 3px 5px 2px rgba(0, 0, 0, 0.15);
+}
+.sliceTextGroup {
+    display: flex;
+    width: 100px;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.smallSliceText {
+    font-size: 0.75em;
+}
+.largeSliceText {
+    font-size: 1.25em;
+   line-height: 32px;
+}
+.mediumSliceText {
+    font-size: 0.6em;
+    line-height: 18px;
+    white-space: nowrap;       /* prevents wrapping / ignores line breaks */
+    overflow: hidden;          /* hides overflow */
+    text-overflow: clip;       /* just clips overflowing text */
+}
+
+
+/* .container .wheel .number span::after {
+    content: '$';
+    padding-left: 5px;
+    position: absolute;
+    font-size: 0.75em;
+    font-weight: 500;
+} */
